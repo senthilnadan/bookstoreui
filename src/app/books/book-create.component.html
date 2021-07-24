@@ -1,0 +1,53 @@
+<h2>New Book</h2>
+<hr>
+<div class="col-md-6">
+    <form #newBookForm="ngForm" (ngSubmit)="saveBook(newBookForm.value)" autocomplete="off" novalidate>
+
+        <div class="form-group" [ngClass]="{'error': newBookForm.controls.name?.invalid && newBookForm.controls.name?.touched}">
+            <label for="bookName">Book Name:</label>
+            <em *ngIf="newBookForm.controls.name?.invalid && (newBookForm.controls.name?.touched)">Required</em>
+            <input (ngModel)="newBook.name" name="name" required id="name" type="text" class="form-control" placeholder="Name of your Book..." />
+        </div>
+
+        <div class="form-group" [ngClass]="{'error': newBookForm.controls.edition?.invalid && newBookForm.controls.edition?.touched}">
+            <label for="edition">Edition:</label>
+            <em *ngIf="newBookForm.controls.edition?.invalid && (newBookForm.controls.edition?.touched)">Required</em>
+            <input (ngModel)="newBook.edition" name="edition" required id="edition" type="number" class="form-control" placeholder="format num " />
+        </div>
+
+        <div class="form-group" [ngClass]="{'error': newBookForm.controls.price?.invalid && newBookForm.controls.price?.touched}">
+            <label for="price">Price:</label>
+            <em *ngIf="newBookForm.controls.price?.invalid && (newBookForm.controls.price?.touched)">Required</em>
+            <input (ngModel)="newBook.price" name="price" required id="price" type="text" class="form-control" placeholder="Price with 2 decimal eg : 100.00 " />
+        </div>
+
+        <div class="form-group" [ngClass]="{'error': newBookForm.controls.pages?.invalid && newBookForm.controls.pages?.touched}">
+            <label for="pages">pages:</label>
+            <em *ngIf="newBookForm.controls.pages?.invalid && (newBookForm.controls.pages?.touched)">Required</em>
+            <input (ngModel)="newBook.pages" name="pages" required id="pages" type="text" class="form-control" placeholder="Pages with no Decimal Places : eg: 100 " />
+        </div>
+
+        <div ngModelGroup="author" #authorGroup="ngModelGroup" validateLocation>
+            <div class="form-group">
+              <label for="author">Book Author:</label>
+              <em *ngIf="authorGroup?.invalid && authorGroup?.touched">You must enter the Author Details or Select Default Author</em>
+              <input (ngModel)="newBook.id" name="id" id="author.id" type="number" class="form-control" placeholder="Author id..." />
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <input (ngModel)="newBook.firstName" name="firstName" id="author.firstName" type="text" class="form-control" placeholder="Author firstName..." />
+              </div>
+              <div class="col-md-6" >
+                <input (ngModel)="newBook.lastName" name="lastName" id="author.lastName" type="text" class="form-control" placeholder="Author lastName..." />
+              </div>
+            </div>
+          </div>
+          <br/>
+          <br/>
+          <button type="submit" class="btn btn primary">Save</button> 
+         <button type="cancel" class="btn btn default" (click)="cancel()">cancel</button> 
+    </form>
+
+
+
+</div>

@@ -1,0 +1,8 @@
+<div [routerLink] = "['/books',book.id]" class="well howerwell thumbnail">
+    <h2>{{book?.name}}</h2>
+    <div>author : {{book.author.firstName + ' ' + book.author.lastName }}</div>
+    <div>edition : {{book.edition}}</div>
+    <div>pages : {{book.pages}}</div>
+    <div>price : {{book.price | currency:'INR'}}</div>
+    <button class="btn btn-primary" (click)="handleClickMe()">Click Me </button>
+</div>

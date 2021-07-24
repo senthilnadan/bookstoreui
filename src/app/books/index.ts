@@ -1,0 +1,6 @@
+export * from './book-create.component'
+export * from './book-list-resolver'
+export * from './book-thumnail.component'
+export * from './books-list.component'
+export * from './shared/index'
+export * from './book-details/index'

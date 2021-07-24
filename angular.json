@@ -24,9 +24,15 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/toastr/build/toastr.min.css",
+              "node_modules/ngf-bootstrap/dist/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/toastr/build/toastr.min.js"
+              
+            ]
           },
           "configurations": {
             "production": {
@@ -61,7 +67,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-fundamendals:build"
+            "browserTarget": "ng-fundamendals:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
